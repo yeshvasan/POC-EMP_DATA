@@ -1,0 +1,57 @@
+<mat-card>
+  <form (submit)="onAddEmployee(employeeForm)" #employeeForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="code"
+        placeholder="Employee Code"
+        ngModel
+        required
+        #code="ngModel"
+      />
+      <mat-error *ngIf="code.invalid">Please Enter the Employee code</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="name"
+        placeholder="Name"
+        ngModel
+        required
+        #name="ngModel"
+      />
+      <mat-error *ngIf="name.invalid">Please Enter Employee Name</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="role"
+        placeholder="Role"
+        ngModel
+        required
+        #role="ngModel"
+      />
+      <mat-error *ngIf="role.invalid">Please Enter Employee Role</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Date Of Birth</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        name="dob"
+        ngModel
+        required
+        #dob="ngModel"
+      />
+      <mat-error *ngIf="dob.invalid">Please Select Date of Birth</mat-error>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button color="primary" mat-raised-button type="submit">
+      Add Employee
+    </button>
+  </form>
+</mat-card>
